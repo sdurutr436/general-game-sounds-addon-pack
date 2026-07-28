@@ -1,0 +1,7 @@
+## Interface: 120000, 120001, 120005, 120007
+## Title: Audio Cues Pack
+## Notes: Custom sound pack, exposed via LibSharedMedia to EllesmereUI (and any other addon that reads LSM "sound" media)
+## Author: sdurutr436
+## Version: 1.0.0
+
+audio_addon.lua
