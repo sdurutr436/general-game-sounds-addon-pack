@@ -1,12 +1,15 @@
 # Formatos de audio admitidos
 
-El cliente de WoW (y por tanto `PlaySoundFile`/LibSharedMedia) sólo reproduce:
+Usa únicamente `.ogg` (Vorbis). En la práctica el cliente no reconoce `.mp3`
+ni `.wav` para estos fines (falla en silencio), así que todo archivo debe
+convertirse antes de registrarse.
 
-- `.ogg` (Vorbis) — recomendado, el que usa EllesmereUI para sus sonidos propios
-- `.mp3`
-- `.wav`
-
-Cualquier otro formato (`.flac`, `.m4a`, etc.) no se reproduce y falla en silencio.
+Cualquier otro formato (`.flac`, `.m4a`, etc.) tampoco se reproduce.
 
 Coloca aquí los archivos y regístralos en `audio_addon.lua` (tabla `CUES`,
-clave = nombre de archivo sin extensión, valor = nombre a mostrar).
+clave = ruta relativa con extensión, valor = nombre a mostrar).
+
+Si añades un `.wav`/`.mp3`, conviértelo primero con
+`Sounds\convert-to-ogg.ps1` (requiere ffmpeg en PATH:
+`winget install --id Gyan.FFmpeg`). Recorre `Sounds\` recursivamente,
+genera el `.ogg` junto al original y borra el `.wav`/`.mp3`.
